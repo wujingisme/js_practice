@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr=[6, 4, -3, 5, -2, -1, 0, 1, -6];
+			function a(arr){
+				//var b=new Array(arr.length);
+				var n=arr.length;
+				var b=[];
+				var m=-1;
+				var count=0;
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]>0){
+						if(b[m]==0){
+							b[m]=arr[i];
+							b[++m]=0;
+						}else{
+							b[++m]=arr[i];
+						}
+				    							
+					}else if(arr[i]==0){
+						b[++m]=0;
+					}
+					 else {
+						b[--n]=arr[i];
+					} 
+				}
+				
+				return b;
+			}
+			console.log(a(arr));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a=[1,4,3,1,2,3,5,6];
+			function remove_sort(a){
+				var sort1=a.sort();//sort只会排序单个数字；
+				var array_sort=[a[0]];
+				console.log(array_sort);
+				console.log(sort1);
+				for(var i=1;i<a.length;i++){
+					if(a[i]!=a[i-1]){
+						array_sort.push(a[i]);
+					}
+					
+				}
+				return array_sort;
+			}
+			console.log("sort的方法 "+remove_sort(a))
+			//方法一 Array.from(new Set(a));
+			var b=Array.from(new Set(a));
+			console.log(b);
+			
+			//方法二 indexof去重，indexof返回的是下标
+			var arr1=[];
+			function remove_same1(arr){
+				for(var i=0;i<arr.length;i++){
+					if(arr1.indexOf(arr[i])==-1)
+					arr1.push(arr[i]);
+				}
+			}
+			remove_same1(a);
+			console.log("方法二  indexof "+arr1)
+			//方法三  splice去除相同的字符(es5里面的特性)
+			function remove_same(arr){
+				for(var i=0;i<arr.length;i++){
+					for(j=i+1;j<arr.length-1;j++)
+					{
+						if(arr[i]==arr[j]){
+							arr.splice(i,1);
+							j--;
+						}
+					}
+				}
+				return arr;
+			}
+			var b1=remove_same(a);
+			console.log("方法三 splice  "+b1)
+			//方法四 includes
+			function unique(arr){
+				var array=[];
+				for(var i=0;i<arr.length;i++){
+					if(!array.includes(arr[i])){
+						array.push(arr[i])
+					}
+				}
+				return array
+			}
+			console.log("方法四  includes  "+unique(a))
+			//filter 的去重方法
+			function unique_filter(arr){
+				return arr.filter(function(item,index,arr){
+					return arr.indexOf(item,0)===index;
+					//当前元素，在数组中的第一个索引==当前索引值，返回当前元素
+				});
+			}
+			var c=[2,4,5,6,5,5,7,4]
+			console.log("方法五  filter   "+unique(c));
+			//递归去重先排序，然后递归调用
+			function remove_loop(arr){
+				var array=arr;
+				 var len=array.length;
+				array.sort(function(a,b){
+					return a-b;
+				});
+			function loop(index){
+				if(index>=1){
+					if(array[index]==array[index-1]){
+						array.splice(index,1)
+					}
+					loop(index-1);
+				}
+				
+			}
+			loop(len-1);
+			return array;
+			}	
+			var c1=[2,4,5,6,5,5,7,4]
+			console.log("方法六递归  "+remove_loop(c1));
+			//map数据结构去重
+			function map_remove(arr){
+				let map=new Map();
+				let array=new Array();
+				for(let i=0;i<arr.length;i++){
+					if(map.has(arr[i]))
+					{
+						map.set(arr[i],true);
+					}else{
+						map.set(arr[i],false);
+						array.push(arr[i]);
+					}
+					}
+				return array;
+			}
+			var c11=[2,4,5,6,5,5,7,4];
+			console.log("方法七递归  "+map_remove(c11));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var arr=[6,4,-3,5,-2,-1,0,1,-6];
+		function aq(array){
+			var length = array.length ;
+			var low = 0;
+			var high = length -1 ;
+			
+			while (low <high) {
+				while(array[low]<0 && low <high){
+					low ++ ;
+				}
+				while(array[high]>0 && low<high){
+					high-- ;
+				}
+				var temp = array[low];
+				array[low] = array[high];
+				array[high] = temp;
+			}
+			return array;
+		}
+		console.log(aq(arr));
+		console.log(typeof aq)
+	</script>
+</html>

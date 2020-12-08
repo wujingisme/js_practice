@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var new_d1= { 'A': 1, 'B.A': 2, 'B.B': 3, 'CC.D.E': 4, 'CC.D.F': 5};
+		var new_d={};
+		function aq(d){
+			for(var key in d){
+				if(key.length==1){
+					new_d[key]=d[key];
+					console.log(new_d);
+				}else{
+					var lst=key.split(".");
+					var l=lst.length;
+					var now_d=new_d;
+					for(var i=0;i<l;i++){
+						if(now_d[lst[i]]==undefined){
+							now_d[lst[i]]={};
+						}
+						now_d=now_d[lst[i]];
+					}
+					now_d[lst[-1]]=d[key];
+				}
+			}
+			return new_d;
+		}
+		console.log(aq(new_d1));
+	</script>
+</html>

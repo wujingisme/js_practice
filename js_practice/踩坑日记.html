@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>		  
+<input type="text" class="aa"> 
+<style type="text/css">
+	/* sessionStoriage只能保存字符串  怎么保存 [{},{},{}] ?
+			var obj=[{},{},{}]
+			sessionStorage.setItem("key",JSON.stringify(obj))
+			var info=JSON.parse(sessionStorage.getItem("key"))复制代码 */
+			
+		getUID: function() { // 获取唯一值
+		        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+		            return v.toString(16);
+		        });
+		    },
+			
+</style>
+	</body>
+</html>
+

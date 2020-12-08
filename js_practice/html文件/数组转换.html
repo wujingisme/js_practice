@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		         //先遍历对象，再遍历对象中的数组取值
+		      let data = {
+		        0: [44, 67, 96],
+		        1: [90, 43, 56],
+		        2: [56, 67, 33],
+		        3: [80, 96, 45]
+		      };
+		      var arr = [];
+	          var count=0;
+		      //  遍历对象的每一个对象
+		      for (var item in data) {
+				   console.log(data[item]);
+		        //  map取对象每一个total对应的值取赋值
+		        data[item].map((i, index) => {
+					count++;
+		          if (!arr[index]){
+		            arr[index] = [];	
+		          }
+		          arr[index].push(data[item][index]);
+		        });
+		      }
+			   console.log(count)
+		      console.log(arr);
+			  
+		</script>
+	</body>
+</html>

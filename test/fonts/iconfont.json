@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3450582",
+      "name": "zhcc_用户名",
+      "font_class": "zhcc_yonghuming",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "14197963",
+      "name": "密码",
+      "font_class": "icon_list_mima",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    }
+  ]
+}
